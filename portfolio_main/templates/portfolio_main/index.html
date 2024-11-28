@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-<p>{{ menu }}</p>
-<h1>{{ title }}</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>{{ title }}</h1>
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://avatars.mds.yandex.net/i?id=4291a63a97a18c51bcfec94d344302a0_l-5218988-images-thumbs&n=13"
+                     class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://d3mxt5v3yxgcsr.cloudfront.net/courses/10756/course_10756_image.png"
+                     class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.ytimg.com/vi/QE_AiPrRHZs/maxresdefault.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    {% for p in posts %}
+    <p class="fw-bolder">{{ p.name }}</p>
+    <p class="fw-bolder">{{ p.description }}</p>
+    <div class="container text-centre">
+    <li><a href="{{ p.url }}">Ссылка</a></li>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<h1>{{ title }}</h1>
+        {% for p in posts %}
+    <p class="fw-bolder">{{ p.name }}</p>
+    <p class="fw-bolder">{{ p.description }}</p>
+    <div class="container text-centre">
+    <li><a href="{{ p.url }}">Ссылка</a></li>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
